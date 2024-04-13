@@ -20,4 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('recipes.urls')),
     path('', include('accounts.urls', namespace='accounts')),
+<<<<<<< HEAD
+    path('', include('favorites.urls', namespace='favorites')),
+=======
+>>>>>>> a0278bc6cb06b80e48df81a008b265b5bdb01b3e
 ]
