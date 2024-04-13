@@ -1,8 +1,22 @@
+<<<<<<< HEAD
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
 <!-- favorite_recipe_card.html -->
+=======
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap">
+>>>>>>> a0278bc6cb06b80e48df81a008b265b5bdb01b3e
 
 <!-- recipe.html -->
 <div class="container d-flex justify-content-center mt-5">
@@ -45,5 +59,33 @@
     </div>
 </div>
 
+</head>
 
+<<<<<<< HEAD
 {% endblock %}
+=======
+<body>
+
+
+
+    <div class="navbar">
+        <div class="logo" style="font-family: 'Satisfy', cursive;color: #f17501;">Family Recipe Hub</div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <button type="submit">signup</button>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>
+>>>>>>> a0278bc6cb06b80e48df81a008b265b5bdb01b3e

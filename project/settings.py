@@ -32,7 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< HEAD
     'favorites.apps.FavoritesConfig',
+=======
+>>>>>>> a0278bc6cb06b80e48df81a008b265b5bdb01b3e
     'accounts.apps.AccountsConfig',
     'recipes.apps.RecipesConfig',
     'django.contrib.admin',
@@ -123,12 +126,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+=======
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'project/static')
+]
+>>>>>>> a0278bc6cb06b80e48df81a008b265b5bdb01b3e
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
