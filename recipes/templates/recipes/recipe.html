@@ -1,10 +1,9 @@
-<<<<<<< HEAD
+
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-<!-- favorite_recipe_card.html -->
-=======
+
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -16,54 +15,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap">
->>>>>>> a0278bc6cb06b80e48df81a008b265b5bdb01b3e
-
-<!-- recipe.html -->
-<div class="container d-flex justify-content-center mt-5">
-    <div class="card m-3" style="width: 18rem;">
-        <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
-        <div class="card-body">
-            <h5 class="card-title">{{ recipe.title }}</h5>
-            <p class="card-text">{{ recipe.description }}</p>
-            <a href="" class="btn btn-primary">View Recipe</a>
-            <!-- Love icon for adding to favorites -->
-            <button class="btn" data-recipe-id="{{ recipe.id }}" href="{% url 'favorites:add_to_favorite' %}">
-                add to favorite
-            </button>
-        </div>
-    </div>
-    <div class="card m-3" style="width: 18rem;">
-        <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
-        <div class="card-body">
-            <h5 class="card-title">{{ recipe.title }}</h5>
-            <p class="card-text">{{ recipe.description }}</p>
-            <a href="" class="btn btn-primary">View Recipe</a>
-            <!-- Love icon for adding to favorites -->
-            <button class="btn btn-outline-danger add-to-favorite" data-recipe-id="{{ recipe.id }}">
-                <i class="bi bi-heart"></i> <!-- Bootstrap Icons heart icon -->
-            </button>
-        </div>
-    </div>
-    <div class="card m-3" style="width: 18rem;">
-        <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
-        <div class="card-body">
-            <h5 class="card-title">{{ recipe.title }}</h5>
-            <p class="card-text">{{ recipe.description }}</p>
-            <a href="" class="btn btn-primary">View Recipe</a>
-            <!-- Love icon for adding to favorites -->
-            <button class="btn btn-outline-danger add-to-favorite" data-recipe-id="{{ recipe.id }}">
-                <i class="bi bi-heart"></i>
-            </button>
-        </div>
-    </div>
-    </div>
-</div>
-
 </head>
 
-<<<<<<< HEAD
-{% endblock %}
-=======
 <body>
 
 
@@ -84,8 +37,85 @@
         </div>
     </div>
     {% block content %}
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text">{{ recipe.description }}</p>
+                <a href="" class="btn btn-primary">View Recipe</a>
+                <!-- Love icon for adding to favorites -->
+                <button class="btn" data-recipe-id="{{ recipe.id }}" href="{% url 'favorites:add_to_favorite' %}">
+                    add to favorite
+                </button>
+            </div>
+        </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text">{{ recipe.description }}</p>
+                <a href="" class="btn btn-primary">View Recipe</a>
+                <!-- Love icon for adding to favorites -->
+                <button class="btn btn-outline-danger add-to-favorite" data-recipe-id="{{ recipe.id }}">
+                    <i class="bi bi-heart"></i> <!-- Bootstrap Icons heart icon -->
+                </button>
+            </div>
+        </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text">{{ recipe.description }}</p>
+                <a href="" class="btn btn-primary">View Recipe</a>
+                <!-- Love icon for adding to favorites -->
+                <button class="btn btn-outline-danger add-to-favorite" data-recipe-id="{{ recipe.id }}">
+                    <i class="bi bi-heart"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text">{{ recipe.description }}</p>
+                <a href="" class="btn btn-primary">View Recipe</a>
+                <!-- Love icon for adding to favorites -->
+                <button class="btn" data-recipe-id="{{ recipe.id }}" href="{% url 'favorites:add_to_favorite' %}">
+                    add to favorite
+                </button>
+            </div>
+        </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text">{{ recipe.description }}</p>
+                <a href="" class="btn btn-primary">View Recipe</a>
+                <!-- Love icon for adding to favorites -->
+                <button class="btn btn-outline-danger add-to-favorite" data-recipe-id="{{ recipe.id }}">
+                    <i class="bi bi-heart"></i> <!-- Bootstrap Icons heart icon -->
+                </button>
+            </div>
+        </div>
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text">{{ recipe.description }}</p>
+                <a href="" class="btn btn-primary">View Recipe</a>
+                <!-- Love icon for adding to favorites -->
+                <button class="btn btn-outline-danger add-to-favorite" data-recipe-id="{{ recipe.id }}">
+                    <i class="bi bi-heart"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>        
     {% endblock %}
 </body>
 
 </html>
->>>>>>> a0278bc6cb06b80e48df81a008b265b5bdb01b3e
