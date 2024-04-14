@@ -2,6 +2,7 @@
 from django import forms
 from .models import Recipe, Ingredient, Instruction, RecipeImage
 
+
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe

@@ -1,8 +1,73 @@
-{% extends 'base.html' %}
-
-
-
-
+{% comment %} {% extends 'base.html' %}
 {% block content %}
 <h1>iam recipe</h1>
-{% endblock content %}
+{% endblock content %} {% endcomment %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.title }}</title>
+    <link rel="stylesheet" href="{% static 'css\recipe_style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ recipe.title }}</h1>
+        <p>Cuisine: {{ recipe.cuisine }}</p>
+        <p>Difficulty: {{ recipe.difficulty }}</p>
+        <p>Average Rating: {{ recipe.avg_rating }}</p>
+        <p>Prep Time: {{ recipe.prep_time }}</p>
+        <p>Cook Time: {{ recipe.cook_time }}</p>
+    </header>
+
+    <div class="container">
+        <div class="recipe-info">
+            {% if recipe.image %}
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+            {% endif %}
+            <h2>Description:</h2>
+            <p>{{ recipe.description }}</p>
+            <h2>Ingredients:</h2>
+            <ul>
+                {% for ingredient in recipe.ingredients.split('\n') %}
+                    <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="recipe-instructions">
+            <h2>Instructions:</h2>
+            <ol>
+                {% for step in recipe.instructions.split('\n') %}
+                    <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button class="favorite-button">Add to Favorites</button>
+        <div class="rating">
+            <p>Your Rating:</p>
+            <select class="rating-select">
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+            <button class="rate-button">Rate</button>
+        </div>
+        <div class="share">
+            <p>Share this recipe:</p>
+            <input type="text" value="URL to share" readonly>
+            <button class="share-button">Copy Link</button>
+        </div>
+    </div>
+
+    <script src="{% static 'js\recipe.js' %}"></script>
+</body>
+</html>
