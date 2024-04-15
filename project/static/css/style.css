@@ -12,8 +12,6 @@ li {
     display: inline;
 }
 
-<<<<<<< HEAD
-=======
 table {
     border-collapse: separate;
     border-spacing: 10px;
@@ -26,7 +24,7 @@ table {
 
 tr,
 td {
-    border: 1px solid;
+
     padding: 10px;
     margin: 40px;
 
@@ -36,7 +34,6 @@ td {
     background-color: rgba(86, 86, 86, 0.5);
 }
 
->>>>>>> 17a097ace3438f8d7f35f1c4a5c1c45395dd2c0c
 /*---------------nav------------------*/
 .navbar {
     position: fixed;
