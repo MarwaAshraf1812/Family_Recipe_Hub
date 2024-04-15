@@ -12,6 +12,28 @@ li {
     display: inline;
 }
 
+table {
+    border-collapse: separate;
+    border-spacing: 10px;
+    width: 60%;
+    height: 500px;
+    margin: 0 auto;
+
+}
+
+
+tr,
+td {
+    border: 1px solid;
+    padding: 10px;
+    margin: 40px;
+
+}
+
+td {
+    background-color: rgba(86, 86, 86, 0.5);
+}
+
 /*---------------nav------------------*/
 .navbar {
     position: fixed;

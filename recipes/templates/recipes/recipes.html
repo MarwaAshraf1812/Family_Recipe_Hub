@@ -1,32 +1,38 @@
-{% extends 'main.html' %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap">
+
+
 </head>
 
 <body>
-    {% block content %}
-    <div class="background-div">
-        <div style=" background-color: rgba(86, 86, 86, 0.5); width: 600px; height: 50%;
-        position: absolute; left: 0; margin: 220px 185px;">
-            <p style="font-family: 'Caveat', cursive; text-align: center; font-weight: bold;
-            font-size: 40px;color: white;">Recipes</p>
 
 
-            <p style="text-align: center; font-family: 'Caveat', cursive; font-size: 30px; font-weight: bold;">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unlock
-                the door to
-                a world of culinary
-                delights at our Family Recipe
-                Hub where every dish tells a story and every recipe invites you to create unforgettable moments.</p>
+
+    <div class="navbar">
+        <div class="logo" style="font-family: 'Satisfy', cursive;color: #f17501;">Family Recipe Hub</div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <button type="submit">signup</button>
         </div>
     </div>
-
-
+    {% block content %}
     {% endblock %}
 </body>
 
