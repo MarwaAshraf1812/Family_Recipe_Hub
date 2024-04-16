@@ -1,34 +1,42 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block title %}Sign Up{% endblock %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
+
 {% block content %}
-<div class="container d-flex justify-content-center">
-    <div class="col-md-6 mt-5">
-        <h2 class="mb-4">Sign Up</h2>
-        <form method="POST">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label for="id_username" class="form-label">Username:</label>
-                <input type="text" name="username" class="form-control" id="id_username">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">E-mail:</label>
-                <input type="email" name="email" class="form-control" id="email">
-            </div>
-            <div class="mb-3">
-                <label for="id_password1" class="form-label">Password:</label>
-                <input type="password" name="password1" class="form-control" id="id_password1">
-            </div>
-            <div class="mb-3">
-                <label for="id_password2" class="form-label">Confirm Password:</label>
-                <input type="password" name="password2" class="form-control" id="id_password2">
-            </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-            <a href="{% url 'accounts:login' %}">
-                <button type="button" class="btn btn-primary btn-block">Login</button>
-            </a>
-        </form>
+<div class="signup-container">
+    <div class="signup-form">
+        <div class="signup-form-left">
+            <h2 class="signup-title">Registration</h2>
+            <div class="line"></div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="signup-group">
+                    <label for="id_username" class="signup-label">Username:</label>
+                    <input type="text" name="username" class="signup-control" id="id_username">
+                </div>
+                <div class="signup-group">
+                    <label for="email" class="signup-label">E-mail:</label>
+                    <input type="email" name="email" class="signup-control" id="email">
+                </div>
+                <div class="signup-group">
+                    <label for="id_password1" class="signup-label">Password:</label>
+                    <input type="password" name="password1" class="signup-control" id="id_password1">
+                </div>
+                <div class="signup-group">
+                    <label for="id_password2" class="signup-label">Confirm Password:</label>
+                    <input type="password" name="password2" class="signup-control" id="id_password2">
+                </div>
+                <p class="login-para">Already have an account? <a href="{% url 'accounts:login' %}" class="login-link">Login</a></p>
+                <button type="submit" class="btn signup-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <div class="signup-form-right">
+        <img src="{% static 'imagess/Signup.png' %}" alt="Image" class="signup-image">
     </div>
 </div>
 {% endblock %}
