@@ -3,7 +3,7 @@
 <h1>iam recipe</h1>
 {% endblock content %} {% endcomment %}
 
-{% load static %}
+{% comment %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,9 +69,9 @@
     </div>
 
     <script src="{% static 'js\recipe.js' %}"></script>
-</body>
+</body> {% endcomment %}
 
-{% comment %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
@@ -190,4 +190,4 @@
     {% endblock %}
 </body>
 
-</html> {% endcomment %}
+</html>
