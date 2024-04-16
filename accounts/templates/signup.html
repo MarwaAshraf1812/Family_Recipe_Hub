@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'main.html' %}
 
 {% block title %}Sign Up{% endblock %}
 
@@ -25,6 +25,9 @@
                 <input type="password" name="password2" class="form-control" id="id_password2">
             </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
+            <a href="{% url 'accounts:login' %}">
+                <button type="button" class="btn btn-primary btn-block">Login</button>
+            </a>
         </form>
     </div>
 </div>

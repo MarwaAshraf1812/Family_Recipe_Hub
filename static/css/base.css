@@ -5,33 +5,8 @@ a {
 }
 
 body {
-    background-color: #ffbe80;
-}
-
-li {
-    display: inline;
-}
-
-table {
-    border-collapse: separate;
-    border-spacing: 10px;
-    width: 60%;
-    height: 500px;
-    margin: 0 auto;
-
-}
-
-
-tr,
-td {
-    border: 1px solid;
-    padding: 10px;
-    margin: 40px;
-
-}
-
-td {
-    background-color: rgba(86, 86, 86, 0.5);
+    background-color: white;
+    font-family: 'Tilt Neon', cursive;
 }
 
 /*---------------nav------------------*/
@@ -40,20 +15,21 @@ td {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
+    background-color: #f4f4f4;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
     z-index: 1000;
     /* Ensure the navbar is on top */
+    border-bottom: 1px solid #eaa872;
 
 }
 
 .logo {
-    color: #fff;
     font-size: large;
     font-weight: bold;
+    margin-left: 30px;
 }
 
 .menu ul {
@@ -73,53 +49,188 @@ td {
 }
 
 .menu ul li a {
-    color: #fff;
+    color: black;
     text-decoration: none;
-    font-family: 'Tilt Neon', cursive;
-    font-size: medium;
-    padding: 15px;
+    font-size: 20px;
+    padding: 5px;
 }
 
 .menu ul li a:hover {
     text-decoration: none;
-    background-color: black;
-
+    background-color: #dc711a;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s;
 }
 
 .search input[type="text"] {
     padding: 8px;
-    border: none;
+    border: 1px solid #e88e44;
     border-radius: 5px;
     margin-right: 10px;
+    font-size: 16px;
 }
 
 .search button {
     padding: 8px 15px;
-    background-color: #4CAF50;
+    background-color: #e88e44;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 30px;
+    font-size: 16px;
 }
 
 .search button:hover {
-    background-color: #45a049;
+    background-color: #dc711a;
 }
 
 
 /*---------------Home------------------*/
 .background-div {
     position: relative;
-    margin-left: 50px;
+    margin-left: 30px;
     margin-top: 70px;
-    /* Adjust this value to leave space for the fixed navbar */
-    text-align: center;
-    width: 95%;
-    height: 800px;
+    width: 96%;
+    height: 600px;
     background-image: url('https://cdn.pixabay.com/photo/2017/11/16/18/51/kagyana-2955466_1280.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 15px;
 
     /* Set a higher z-index to ensure it appears on top of the navbar */
+}
+
+.card {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    position: absolute;
+    top: 23%;
+    left: 14%;
+    background-color: hsla(0, 7%, 83%, 0.5);;
+    color: black;
+    padding: 30px;
+    width: 40%;
+    height: 44%;
+    font-family: "Lora", serif;
+}
+
+.card-title {
+    font-size: 70px;
+    font-weight: bold;
+}
+.card-para{
+    font-size: 20px;
+}
+.card:hover {
+    background-color: hsla(0, 2%, 74%, 0.8);
+    transition: 0.5s;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.top-title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipe-card {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.recipe-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.recipe-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.recipe-title:hover {
+    color: #e88e44;
+}
+
+/*login form */
+
+.form-container {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-card {
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(186, 99, 5, 0.1);
+}
+
+.form-card-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 5rem;
+    color: #dc711a;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.form-group  label{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f4f4f4;
+    outline: none;
+}
+
+.form-control:hover{
+    border: 1px solid #dc711a;
+}
+.btn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.login {
+    font-size: 20px;
+    width: 25%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e88e44;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.login:hover {
+    background-color: #c96616;
 }
