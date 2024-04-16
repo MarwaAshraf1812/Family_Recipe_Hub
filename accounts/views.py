@@ -5,8 +5,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import CustomUser
 from django.contrib.auth.models import User
 
+
 # def home(request):
 #     return render(request, 'home.html')
+
 
 def signup(request):
     if request.method == 'POST':
@@ -40,7 +42,8 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('accounts:home')
+            print("user = ", user)
+            return redirect('recipes:home')
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})

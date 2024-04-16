@@ -29,7 +29,7 @@ class RecipeIngredient(models.Model):
     unit = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
-        return ...
+        return f"{self.recipe.title} - {self.ingredient.name}"
 
 
 class Instruction(models.Model):
@@ -39,7 +39,7 @@ class Instruction(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.recipe
+        return self.recipe.title
 
 
 class Category(models.Model):
@@ -52,7 +52,7 @@ class Category(models.Model):
 
 class RecipeImage(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    image_url = models.URLField()
+    image_url = models.ImageField(upload_to='photos/%y/%m/%d')
 
     def __str__(self):
         return self.recipe.title

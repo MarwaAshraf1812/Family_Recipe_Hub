@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet"  href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    {% block image %}
+    <div class="background-div">
+        <div class="card">
+            <h1 class="card-title">Recipes</h1>
+
+
+            <p class="card-para">Unlock
+                the door to
+                a world of culinary
+                delights at our Family Recipe
+                Hub where every dish tells a story and every recipe invites you to create unforgettable moments.</p>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <h2 class="top-title">Top Recipes</h2>
+        <div class="recipe-container">
+            {% for recipe in top_recipes %}
+            <div class="recipe-card">
+                {% for recipe_image in recipe.images %}
+                {% if recipe_image.image_url %}
+                <img src="{{ recipe_image.image_url.url }}" alt="{{ recipe.title }}" class="recipe-image">
+                {% endif %}
+                {% endfor %}
+                <p class="recipe-title">{{ recipe.title }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+            
+
+
+    {% endblock %}
+
+
+
+</body>
+
+</html>
