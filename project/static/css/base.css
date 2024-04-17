@@ -358,3 +358,113 @@ body {
     text-decoration:underline;
     margin-left: 10px;
 }
+
+
+/*recipes*/
+.doc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    background-color: #ed6f08;
+    color: white;
+}
+.doc-title{
+    font-size: 55px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+.doc-intro{
+    font-size: 20px;
+    width: 55%;
+    margin: auto ;
+    margin-bottom: 20px;
+}
+
+
+.search-input {
+    position: absolute;
+    width: 80%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    border: 1px solid #e1dfdf;
+    border-radius: 5px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -20px; /* Adjust this value to control vertical positioning */
+}
+.search-input:hover, .search-input:focus {
+    border: 1px solid #FD7B10;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recipes-section{
+    margin: 50px;
+}
+
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipes-card {
+    width: 20.5%;
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.recipes-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recipes-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.recipes-title {
+    
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.fav-btn {
+    background-color: #FD7B10;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.card-link{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    margin: 5px;
+}
+
+
+
+
+
