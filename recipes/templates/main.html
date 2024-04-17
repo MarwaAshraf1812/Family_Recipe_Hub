@@ -8,14 +8,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap">
-
-
 </head>
 
 <body>
-
-
-
     <div class="navbar">
         <div class="logo" style="font-family: 'Satisfy', cursive;color: #f17501;">Family Recipe Hub</div>
         <div class="menu">
@@ -29,7 +24,7 @@
         <div class="right">
             <input type="text" placeholder="Search">
             <!-- <div class="search-icon">
-                <img src="{% static 'imagess/search.png' %}">
+                <img src="{% static 'imagess/search.png' %} width="50px">
             </div> -->
             
         {% if user.is_authenticated %}
@@ -47,8 +42,31 @@
     {% endblock %}
     {% block content%}
     {% endblock %}
-    {% block footer %}
-    {% endblock %}
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="f-logo" style="font-family: 'Satisfy', cursive;color: #f17501;">Family Recipe Hub</div>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="{% url 'recipes:home' %}">Home</a></li>
+                    <li><a href="{% url 'recipes:recipes' %}">Recipes</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span class="last">2024</span> Family Recipe Hub. All rights reserved.</p>
+        </div>
+    </footer>
+    
 </body>
 
 </html>

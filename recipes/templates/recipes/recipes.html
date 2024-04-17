@@ -23,6 +23,8 @@
     </div>
 </div>
 <div class="recipes-section">
+    <h2 class="recipes-section-title">Popular Recipes</h2>
+    <div class="line"></div>
     <div class="recipes-container">
         {% for recipe in recipes %}
         <div class="recipes-card">
@@ -31,8 +33,11 @@
             <img src="{{ recipe_image.image_url.url }}" alt="{{ recipe.title }}" class="recipes-image" width="50px">
             {% endif %}
             {% endfor %}
-            <p class="recipes-title">{{ recipe.title }}</p>
-            <p class="average-rating">rate: {{ recipe.avg_rating }}</p>
+            <div class="body-card">
+                <p class="recipes-title">{{ recipe.title }}</p>
+                <p class="rating"><span>rate:</span> {{ recipe.avg_rating }}</p>
+            </div>
+           
             
             {% if recipe.id in favorites %}
             <form method="post" action="{% url 'favorites:remove_from_favorite' recipe_id=recipe.id %}" class="add-to-favorites-form">
@@ -51,4 +56,66 @@
         {% endfor %}
     </div>
 </div>
+<div class="line-center"></div>
+<div class="catrgories-container">
+    <h2 class="recipes-section-title">Categories</h2>
+    <div class="line"></div>
+    <div class="categories">
+        <div class="category">
+            <img src="{% static 'imagess/vegans.jpg' %}" alt="vegan" class="category-image">
+            <p class="category-title">Vegan</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/vegetarian.jpeg' %}" alt="vegetarian" class="category-image">
+            <p class="category-title">Vegetarian</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/low-carb.jpg' %}" alt="low-carb" class="category-image">
+            <p class="category-title">Low Carb</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/gluten-free.jpeg' %}" alt="gluten-free" class="category-image">
+            <p class="category-title">Gluten Free</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/meal-prep.jpg' %}" alt="meal-prep" class="category-image">
+            <p class="category-title">Meal Prep</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/weeknight-dinners.jpg' %}" alt="weeknight-dinners" class="category-image">
+            <p class="category-title">Weeknight Dinners</p>
+        </div>
+    </div>
+</div>
+<div class="line-center"></div>
+<div class="catrgories-container">
+<h2 class="recipes-section-title">RECIPES BY INGREDIENT</h2>
+<div class="line"></div>
+<div class="categories">
+    <div class="category">
+        <div class="circle"></div>
+        <p class="category-title">Bell Peppe</p>
+    </div>
+    <div class="category">
+        <div class="circle"></div>
+        <p class="category-title">Carrot</p>
+    </div>
+    <div class="category">
+        <div class="circle"></div>
+        <p class="category-title">Eggs</p>
+    </div>
+    <div class="category">
+        <div class="circle"></div>
+        <p class="category-title">Lime</p>
+    </div>
+    <div class="category">
+        <div class="circle"></div>
+        <p class="category-title">Pasta</p>
+    </div>
+    <div class="category">
+        <div class="circle"></div>
+        <p class="category-title">Sweet Potato</p>
+    </div>
+</div>
+<div class="line-center"></div>
 {% endblock %}
