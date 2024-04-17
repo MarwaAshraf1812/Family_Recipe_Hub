@@ -9,10 +9,6 @@ from favorites.models import Favorite
 from django.conf import settings
 
 
-def recipe_details(request, recipe_id):
-    recipe = get_object_or_404(Recipe, pk=recipe_id)
-    return render(request, 'recipes/recipe.html', {'recipe': recipe})
-
 # def home(request):
 #     return render(request, 'recipes/home.html', {'recipes':Recipe.objects.all()})
 
@@ -49,6 +45,11 @@ def recipes(request):
         for recipe in recipes
     ]
     return render(request, 'recipes/recipes.html', {'recipes': recipesData, 'favorites': fav})
+
+
+def recipe_details(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    return render(request, 'recipes/recipe.html', {'recipe': recipe})
 
 
 def recipe_search(request):

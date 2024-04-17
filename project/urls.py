@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('recipes.urls')),
     path('', include('accounts.urls', namespace='accounts')),
     path('', include('favorites.urls', namespace='favorites')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
