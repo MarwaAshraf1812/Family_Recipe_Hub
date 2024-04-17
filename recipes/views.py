@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import RecipeSearchForm
 from django.db.models import Q
+from django.shortcuts import render, get_object_or_404
+from .forms import RecipeSearchForm
+from django.db.models import Q
 from .models import Recipe, RecipeImage, RecipeIngredient, Category, Ingredient, Instruction
 from favorites.models import Favorite
 from django.conf import settings
@@ -28,7 +31,7 @@ def home(request):
     ]
     print(top_recipes)
     # Render the template with the top recipes
-    return render(request, 'recipes/home.html',{'top_recipes': top_recipes})
+    return render(request, 'recipes/home.html', {'top_recipes': top_recipes})
 
 
 def recipes(request):
@@ -41,7 +44,7 @@ def recipes(request):
         'avg_rating': float(recipe.avg_rating),
         'images':  RecipeImage.objects.filter(recipe=recipe),
     }
-    for recipe in recipes
+        for recipe in recipes
     ]
     return render(request, 'recipes/recipes.html', {'recipes': recipesData, 'favorites': fav})
 
