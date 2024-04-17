@@ -1,8 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from .forms import RecipeSearchForm
-from django.db.models import Q
+from django.shortcuts import render
 from .models import Recipe, RecipeImage, RecipeIngredient, Category, Ingredient, Instruction
 from django.conf import settings
+from favorites.models import Favorite
 
 def recipe(request):
     return render(request, 'recipes/recipe.html') 
@@ -44,18 +43,3 @@ def recipes(request):
     for recipe in recipes
     ]
     return render(request, 'recipes/recipes.html', {'recipes': recipesData, 'favorites': fav})
-
-def recipe_search(request):
-    if request.method == 'POST':
-        form = RecipeSearchForm(request.POST)
-        if form.is_valid():
-            search_request = form.cleaned_data['SearchRequest']
-            # Perform the search query
-            results = Recipe.objects.filter(
-                Q(title__icontains=search_request) |  # Title contains the search_request
-                Q(recipeingredient__ingredient__name__icontains=search_request)  # Ingredient name contains the search_request
-            ).distinct()  # Use distinct to avoid duplicate results
-            return render(request, 'search_results.html', {'results': results, 'search_request': search_request})
-    else:
-        form = RecipeSearchForm()
-    return render(request, 'search_form.html', {'form': form})
