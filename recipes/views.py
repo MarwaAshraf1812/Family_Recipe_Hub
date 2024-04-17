@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .forms import RecipeSearchForm
+from django.db.models import Q
 from .models import Recipe, RecipeImage, RecipeIngredient, Category, Ingredient, Instruction
 from django.conf import settings
-from favorites.models import Favorite
 
 def recipe(request):
     return render(request, 'recipes/recipe.html') 
