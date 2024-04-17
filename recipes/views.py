@@ -8,8 +8,10 @@ from .models import Recipe, RecipeImage, RecipeIngredient, Category, Ingredient,
 from favorites.models import Favorite
 from django.conf import settings
 
-def recipe(request):
-    return render(request, 'recipes/recipe.html') 
+
+def recipe_detail(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    return render(request, 'recipe.html', {'recipe': recipe})
 
 # def home(request):
 #     return render(request, 'recipes/home.html', {'recipes':Recipe.objects.all()})
