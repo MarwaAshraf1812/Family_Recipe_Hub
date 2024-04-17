@@ -7,3 +7,7 @@ class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = '__all__'  # Use all fields from the Recipe model
+
+
+class RecipeSearchForm(forms.Form):
+    SearchRequest = forms.CharField(initial='Search Recipe', max_length=100)
