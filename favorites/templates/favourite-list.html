@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="favo-container">
+    <h2 class="favo-title">Favorite Recipes</h2>
+    <div class="favo-body">
+        {% for favorite in favorites %}
+            <div class="favo-card">
+                {% for image, v in images.items %}
+                {% if image == favorite.Recipe.id %}
+                {% for val in v %}
+                <img src="{{ val.image_url.url }}" alt="{{ favorite.Recipe.title }}" class="fav-image" width="50px">
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+                <h5 class="fav-card-title">{{ favorite.Recipe.title }}</h5>
+                <p class="card-text">rate: {{ favorite.Recipe.avg_rating }}</p>
+                <a href="#" class="favo-btn">View Recipe</a>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+{% endblock %}
+

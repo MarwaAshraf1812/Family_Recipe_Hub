@@ -1,33 +1,54 @@
 {% extends 'main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}recipes{% endblock %}
 
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-</head>
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
 
-<body>
-    {% block content %}
-    <div class="background-div">
-        <div style=" background-color: rgba(86, 86, 86, 0.5); width: 600px; height: 50%;
-        position: absolute; left: 0; margin: 220px 185px;">
-            <p style="font-family: 'Caveat', cursive; text-align: center; font-weight: bold;
-            font-size: 40px;color: white;">Recipes</p>
-
-
-            <p style="text-align: center; font-family: 'Caveat', cursive; font-size: 30px; font-weight: bold;">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unlock
-                the door to
-                a world of culinary
-                delights at our Family Recipe
-                Hub where every dish tells a story and every recipe invites you to create unforgettable moments.</p>
-        </div>
+{% block content %}
+<div class="doc">
+    <div class="doc-content">
+        <h1 class="doc-title">Recipes</h1>
+        <p class="doc-intro">
+            We’ve organized these recipes every way we could think 
+            of so you don't have to! Dietary restrictions, 
+            weeknight dinners, meal prep recipes, some of 
+            our most tried-and-true… no matter how you browse, 
+            we’re sure you’ll find just what you were looking for.
+        </p>
     </div>
-
-
-    {% endblock %}
-</body>
-
-</html>
+    <div class="doc-search">
+        <input type="text" class="search-input" placeholder="Search for recipes">
+    </div>
+</div>
+<div class="recipes-section">
+    <div class="recipes-container">
+        {% for recipe in recipes %}
+        <div class="recipes-card">
+            {% for recipe_image in recipe.images %}
+            {% if recipe_image.image_url %}
+            <img src="{{ recipe_image.image_url.url }}" alt="{{ recipe.title }}" class="recipes-image" width="50px">
+            {% endif %}
+            {% endfor %}
+            <p class="recipes-title">{{ recipe.title }}</p>
+            <p class="average-rating">rate: {{ recipe.avg_rating }}</p>
+            
+            {% if recipe.id in favorites %}
+            <form method="post" action="{% url 'favorites:remove_from_favorite' recipe_id=recipe.id %}" class="add-to-favorites-form">
+                {% csrf_token %}
+                <button type="submit" class="fav-btn">Remove</button>
+            </form>
+            {% else %}
+            <form method="post" action="{% url 'favorites:add_to_favorite' recipe_id=recipe.id %}" class="add-to-favorites-form">
+                {% csrf_token %}
+                <button type="submit" class="fav-btn">Add to Favorites</button>
+            </form>
+            {% endif %}
+        
+            <a href="#" class="card-link">View Recipe</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
