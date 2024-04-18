@@ -1,49 +1,51 @@
-{% extends 'base.html' %}
+{% extends 'main.html' %}
+
 {% load static %}
 
-{% block content %}
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap">
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo" style="font-family: 'Satisfy', cursive;color: #f17501;">Family Recipe Hub</div>
-        <div class="menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Recipes</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-        <div class="search">
-            <input type="text" placeholder="Search">
-            <button type="submit">signup</button>
-        </div>
-    </div>
-
-    <div class="container d-flex justify-content-center mt-5">
-        <div class="card m-3" style="width: 18rem;">
-            <img src="{% static 'images/food.png' %}" class="card-img-top" alt="food">
-            <div class="card-body">
-                <h5 class="card-title">{{ recipe.title }}</h5>
-                <p class="card-text">{{ recipe.description }}</p>
-                <a href="" class="btn btn-primary">View Recipe</a>
-                <!-- Love icon for adding to favorites -->
-                <button class="btn" data-recipe-id="{{ recipe.id }}">
-                    add to favorite
-                </button>
-            </div>
-        </div>
-        <!-- Repeat the card markup for additional recipe cards -->
-    </div>
-
-</body>
-</html>
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/recipe.css' %}">
 {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ recipe_data.title }}</h1>
+            <p><strong>Description:</strong> {{ recipe_data.description }}</p>
+            <p><strong>Preparation Time:</strong> {{ recipe_data.prep_time }}</p>
+            <p><strong>Cooking Time:</strong> {{ recipe_data.cook_time }}</p>
+            <p><strong>Cuisine:</strong> {{ recipe_data.cuisine }}</p>
+            
+            {% if recipe_data.avg_rating %}
+            <p><strong>Average Rating:</strong> {{ recipe_data.avg_rating }}</p>
+            {% endif %}
+            
+            <h3>Ingredients:</h3>
+            <ul>
+                {% for ingredient in recipe_data.ingredients %}
+                <li>{{ ingredient.quantity }} {{ ingredient.unit }} - {{ ingredient.ingredient.name }}</li>
+                {% endfor %}
+            </ul>
+            
+            <h3>Instructions:</h3>
+            <ol>
+                {% for instruction in recipe_data.instructions %}
+                <li>{{ instruction.step_number }}. {{ instruction.description }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+        <div class="col-md-4">
+            <h3>Images:</h3>
+            <div class="row">
+                {% for image in recipe_data.images %}
+                <div class="col-md-6">
+                    <img src="{{ image.image_url.url }}" class="img-fluid mb-2" alt="Recipe Image">
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+

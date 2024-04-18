@@ -9,3 +9,6 @@ class Favorite(models.Model):
 
     class Meta:
         unique_together = [('user', 'Recipe')]
+    
+    def __str__(self):
+        return f'{self.Recipe}'
