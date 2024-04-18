@@ -24,7 +24,6 @@ def home(request):
         }
         for recipe in top_recipes
     ]
-    print(top_recipes)
     # Render the template with the top recipes
     return render(request, 'recipes/home.html',{'top_recipes': top_recipes})
 
@@ -32,8 +31,10 @@ def home(request):
 
 def recipes(request):
     recipes = Recipe.objects.all()
-    favorite_recipes = Favorite.objects.filter(user=request.user)
-    fav = [recipe.Recipe.id for recipe in favorite_recipes]
+    fav = []
+    if request.user.is_authenticated:
+        favorite_recipes = Favorite.objects.filter(user=request.user)
+        fav = [recipe.Recipe.id for recipe in favorite_recipes]
     recipesData = [{
         'id': recipe.id,
         'title': recipe.title,

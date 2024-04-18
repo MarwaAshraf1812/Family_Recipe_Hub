@@ -13,30 +13,34 @@
 <body>
     <div class="navbar">
         <div class="logo" style="font-family: 'Satisfy', cursive;color: #f17501;">Family Recipe Hub</div>
-        <div class="menu">
-            <ul>
-                <li><a href="{% url 'recipes:home' %}">Home</a></li>
-                <li><a href="{% url 'recipes:recipes' %}">Recipes</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-        <div class="right">
-            <input type="text" placeholder="Search">
-            <!-- <div class="search-icon">
-                <img src="{% static 'imagess/search.png' %} width="50px">
-            </div> -->
-            
-        {% if user.is_authenticated %}
-        <a href="{% url 'accounts:logout' %}">
-            <button type="submit">Logout</button>
-        </a>
-        {% else %}
-        <a href="{% url 'accounts:signup' %}">
-            <button type="submit">signup</button>
-        </a>
-        {% endif %}
-    </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="{% url 'recipes:home' %}">Home</a></li>
+                    <li><a href="{% url 'recipes:recipes' %}">Recipes</a></li>
+                    {%if  request.path  == '/recipes/' %}
+                        <li><a href="{% url 'recipes:home' %}#about">About Us</a></li>
+                        <li><a href="{% url 'recipes:home' %}#contact">Contact Us</a></li>
+                    {% else %}
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    {% endif %}
+            </div>
+            <div class="right">
+                <input type="text" placeholder="Search">
+                <!-- <div class="search-icon">
+                    <img src="{% static 'imagess/search.png' %} width="50px">
+                </div> -->
+                
+            {% if user.is_authenticated %}
+            <a href="{% url 'accounts:logout' %}">
+                <button type="submit">Logout</button>
+            </a>
+            {% else %}
+            <a href="{% url 'accounts:signup' %}">
+                <button type="submit">signup</button>
+            </a>
+            {% endif %}
+            </div>
     </div>
     {% block image %}
     {% endblock %}
@@ -51,7 +55,7 @@
                 <ul>
                     <li><a href="{% url 'recipes:home' %}">Home</a></li>
                     <li><a href="{% url 'recipes:recipes' %}">Recipes</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-social">
@@ -66,7 +70,6 @@
             <p>&copy; <span class="last">2024</span> Family Recipe Hub. All rights reserved.</p>
         </div>
     </footer>
-    
 </body>
 
 </html>
