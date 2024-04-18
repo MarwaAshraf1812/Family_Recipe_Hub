@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import Recipe, RecipeImage, RecipeIngredient, Category, Ingredient, Instruction
-from django.conf import settings
+from .models import Recipe, RecipeImage
 from favorites.models import Favorite
+from django.http import JsonResponse
+
 
 def recipe(request):
     return render(request, 'recipes/recipe.html') 
@@ -44,3 +45,13 @@ def recipes(request):
     for recipe in recipes
     ]
     return render(request, 'recipes/recipes.html', {'recipes': recipesData, 'favorites': fav})
+
+
+def recipe_search(request):
+    query = request.GET.get('query', '')
+    if query:
+        # Query the database for recipes matching the search query
+        search_results = Recipe.objects.filter(title__icontains=query).values('id', 'title')
+        return render(request, 'recipes/recipe.html', {'search_results': search_results})
+    else:
+        return JsonResponse([], safe=False)

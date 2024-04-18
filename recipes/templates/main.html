@@ -26,18 +26,21 @@
                     {% endif %}
             </div>
             <div class="right">
-                <input type="text" placeholder="Search">
-                <!-- <div class="search-icon">
-                    <img src="{% static 'imagess/search.png' %} width="50px">
-                </div> -->
+                <form id="search-form" method="GET" action="{% url 'recipes:recipe_search' %}">
+                    {% csrf_token %}
+                    <input type="text" id="search-input" name="query" placeholder="Search for recipes">
+                    <button type="submit" class="search-btn-home">Search</button>
+                </form>
+                <div id="search-results" class="search-results"></div>
+                </div>
                 
             {% if user.is_authenticated %}
             <a href="{% url 'accounts:logout' %}">
-                <button type="submit">Logout</button>
+                <button class="s-button" type="submit">Logout</button>
             </a>
             {% else %}
             <a href="{% url 'accounts:signup' %}">
-                <button type="submit">signup</button>
+                <button class="s-button" type="submit">signup</button>
             </a>
             {% endif %}
             </div>

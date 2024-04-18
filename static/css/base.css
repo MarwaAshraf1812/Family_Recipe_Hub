@@ -81,18 +81,18 @@ body {
     height: 20px;
 
 } */
-.right button {
+.right .s-button {
     padding: 8px 15px;
     background-color: #FD7B10;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 50px;
+    margin-right: 70px;
     font-size: 16px;
 }
 
-.right button:hover {
+.right .s-button:hover {
     background-color: #dc711a;
 }
 

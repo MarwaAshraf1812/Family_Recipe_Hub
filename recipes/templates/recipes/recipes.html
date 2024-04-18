@@ -19,8 +19,14 @@
         </p>
     </div>
     <div class="doc-search">
-        <input type="text" class="search-input" placeholder="Search for recipes">
-    </div>
+        <form id="search-form" method="GET" action="{% url 'recipes:recipe_search' %}">
+            {% csrf_token %}
+            <input type="text" id="search-input" name="query" placeholder="Search for recipes" class="search-input">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+        <div id="search-results" class="search-results"></div>
+        </div>
+
 </div>
 <div class="recipes-section">
     <h2 class="recipes-section-title">Popular Recipes</h2>

@@ -22,7 +22,6 @@ body {
     justify-content: space-between;
     padding: 10px 20px;
     z-index: 1000;
-    /* Ensure the navbar is on top */
     border-bottom: 1px solid #eaa872;
 
 }
@@ -42,7 +41,6 @@ body {
 .menu ul li {
     display: inline;
     margin-right: 20px;
-
 }
 
 .menu ul li:last-child {
@@ -65,28 +63,22 @@ body {
 }
 
 .right input[type="text"] {
+    width: 80%;
     padding: 8px;
     border: 1px solid #FD7B10;
     border-radius: 5px;
     margin-right: 10px;
     font-size: 16px;
 }
+
 .right input[type="text"]:hover,
 .right input[type="text"]:focus{
     border: 1px solid #e88e44;
     outline: none;
 }
-/* .search-icon {
-    cursor: pointer;
-    margin-right: 10px;
-}
 
-.search-icon img{
-    width: 20px;
-    height: 20px;
-
-} */
 .right button {
+    position: absolute;
     padding: 8px 15px;
     background-color: #FD7B10;
     color: white;
@@ -100,7 +92,20 @@ body {
 .right button:hover {
     background-color: #dc711a;
 }
+.s-button {
+    padding: 8px 15px;
+    background-color: #FD7B10;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 50px;
+    font-size: 16px;
+}
 
+.right .s-button:hover {
+    background-color: #dc711a;
+}
 
 /*---------------Home------------------*/
 .background-div {
@@ -135,9 +140,11 @@ body {
     font-size: 70px;
     font-weight: bold;
 }
+
 .card-para{
     font-size: 20px;
 }
+
 .card:hover {
     background-color: hsla(0, 2%, 74%, 0.8);
     transition: 0.5s;
@@ -165,17 +172,20 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+
 .recipe-image {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
+
 .recipe-title {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 .recipe-title:hover {
     color: #e88e44;
 }
@@ -186,6 +196,7 @@ body {
     width: 100%;
     background-color: #efecec;
 }
+
 .form-container {
     flex: 1;
     width: 70%;
@@ -217,10 +228,12 @@ body {
     flex-direction: row;
     justify-content: space-between;
 }
+
 .form-group  label{
     font-size: 18px;
     margin-bottom: 5px;
     width: 70%;
+    margin-right: 30px;
 }
 
 .form-control {
@@ -235,6 +248,7 @@ body {
     border: 1px solid #e88e44;
     outline: none;
 }
+
 .btn{
     margin-top: 20px;
     display: flex;
@@ -315,10 +329,12 @@ body {
 .signup-group{
     margin-bottom: 20px;
 }
+
 .signup-label{
     font-size: 18px;
     margin-bottom: 10px;
 }
+
 .signup-control{
     width: 86%;
     padding: 10px;
@@ -327,6 +343,7 @@ body {
     border: 1px solid #ccc;
     font-size: 18px;
 }
+
 .signup-control:hover, .signup-control:focus{
     border: 1px solid #e88e44;
     outline: none;
@@ -348,23 +365,25 @@ body {
     background-color: #f37209;
     transition: all 0.3s;
 }
+
 .signup-image {
     width: 100%;
     height: auto;
 }
+
 .login-para {
     margin-top: 25px;
     font-size: 16px;
     text-align: center;
     margin-bottom: 20px;
 }
+
 .login-link{
     color: #FD7B10;
     font-weight: bold;
     text-decoration:underline;
     margin-left: 10px;
 }
-
 
 /*recipes*/
 .doc{
@@ -379,12 +398,14 @@ body {
     background-color: #ed6f08;
     color: white;
 }
+
 .doc-title{
     font-size: 55px;
     font-weight: bold;
     margin-bottom: 20px;
 
 }
+
 .doc-intro{
     font-size: 20px;
     width: 55%;
@@ -394,7 +415,7 @@ body {
 
 .search-input {
     position: absolute;
-    width: 80%;
+    width: 70%;
     padding: 10px;
     box-sizing: border-box;
     font-size: 20px;
@@ -404,8 +425,26 @@ body {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    bottom: -20px; /* Adjust this value to control vertical positioning */
+    bottom: -20px;
 }
+
+.search-btn{
+    position: absolute;
+    bottom: -15px;
+    right: 15.7%;
+    padding: 7px;
+    border: none;
+    background-color: #FD7B10;
+    color: #e7e7e7;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.search-btn:hover{
+    background-color: #c05a06;
+}
+
 .search-input:hover, .search-input:focus {
     border: 1px solid #FD7B10;
     outline: none;
@@ -421,6 +460,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .recipes-section-title{
     margin-left: 20px;
 }
@@ -448,6 +488,7 @@ body {
     height: 200px;
     border-radius: 8px;
 }
+
 .body-card{
     margin-bottom: 50px;
 }
@@ -457,9 +498,11 @@ body {
     font-size: 22px;
     font-weight: bold;
 }
+
 .rating{
     font-size: 15px;
 }
+
 span {
     color: #FD7B10;
     font-weight: bold;
@@ -505,6 +548,7 @@ span {
     margin-left: 3.5%;
     margin-bottom: 5%;
 }
+
 .categories {
     display: flex;
     flex-wrap: wrap;
@@ -523,7 +567,6 @@ span {
 .category:nth-child(3n) {
     margin-right: 0; /* Remove margin for every third category */
 }
-
 
 .category-image {
     width: 100px;
@@ -544,9 +587,11 @@ span {
     font-weight: bold;
     margin-left: 16px;
 }
+
 .category-title:hover {
     color: #FD7B10;
 }
+
 .circle {
     width: 16px;
     height: 16px;
@@ -557,12 +602,14 @@ span {
     align-items: center;
     margin-right: 10px;
 }
+
 .line-center{
     width: 70%;
     height: 2px;
     background-color: #FD7B10;
     margin: auto;
 }
+
 .line-center:hover{
     width: 30%;
     transition: all 2s;
@@ -591,6 +638,7 @@ span {
     margin-bottom: 20px;
     text-align: center;
 }
+
 .footer-links ul {
     list-style: none;
     padding: 0;
@@ -611,6 +659,7 @@ span {
     color: #333;
     text-decoration: none;
 }
+
 .footer-links ul li a:hover{
     color: #FD7B10;
  }
@@ -646,6 +695,7 @@ span {
     text-align: center;
     font-size: 14px;
 }
+
 .last{
     color: #FD7B10;
 }
@@ -655,7 +705,7 @@ span {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 0;
+    padding: 50px 40px;
 }
 
 .about-text {
@@ -733,6 +783,7 @@ span {
     height: 90%;
     width: 85%;
 }
+
 .blog-post:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -742,6 +793,7 @@ span {
     font-weight: bold;
     margin-bottom: 30px;
 }
+
 .c-line{
     width: 10%;
     height: 2px;
@@ -755,9 +807,9 @@ span {
     height: 67%;
     border-radius: 10px;
 }
+
 .post-date{
     color: #666;
-
 }
 
 .blog-post .post-date {
@@ -783,9 +835,11 @@ span {
     border-radius: 4px;
     text-decoration: none;
 }
+
 .view-all-btn:hover , .view-post-btn:hover {
     background-color: #c05a06;
 }
+
 /* contact us */
 .contact-section {
     width: 87%;
@@ -868,6 +922,7 @@ span {
     font-size: 16px;
     margin-bottom: 30px;
 }
+
 .form-btn:hover {
     background-color: #c05a06;
 }
