@@ -1,33 +1,128 @@
 {% extends 'main.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}recipes{% endblock %}
 
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-</head>
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
 
-<body>
-    {% block content %}
-    <div class="background-div">
-        <div style=" background-color: rgba(86, 86, 86, 0.5); width: 600px; height: 50%;
-        position: absolute; left: 0; margin: 220px 185px;">
-            <p style="font-family: 'Caveat', cursive; text-align: center; font-weight: bold;
-            font-size: 40px;color: white;">Recipes</p>
+{% block content %}
+<div class="doc">
+    <div class="doc-content">
+        <h1 class="doc-title">Recipes</h1>
+        <p class="doc-intro">
+            We’ve organized these recipes every way we could think 
+            of so you don't have to! Dietary restrictions, 
+            weeknight dinners, meal prep recipes, some of 
+            our most tried-and-true… no matter how you browse, 
+            we’re sure you’ll find just what you were looking for.
+        </p>
+    </div>
+    <div class="doc-search">
+        <form id="search-form" method="GET" action="{% url 'recipes:recipe_search' %}">
+            {% csrf_token %}
+            <input type="text" id="search-input" name="query" placeholder="Search for recipes" class="search-input">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+        <div id="search-results" class="search-results"></div>
+        </div>
 
-
-            <p style="text-align: center; font-family: 'Caveat', cursive; font-size: 30px; font-weight: bold;">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unlock
-                the door to
-                a world of culinary
-                delights at our Family Recipe
-                Hub where every dish tells a story and every recipe invites you to create unforgettable moments.</p>
+</div>
+<div class="recipes-section">
+    <h2 class="recipes-section-title">Popular Recipes</h2>
+    <div class="line"></div>
+    <div class="recipes-container">
+        {% for recipe in recipes %}
+        <div class="recipes-card">
+            {% for recipe_image in recipe.images %}
+            {% if recipe_image.image_url %}
+            <img src="{{ recipe_image.image_url.url }}" alt="{{ recipe.title }}" class="recipes-image" width="50px">
+            {% endif %}
+            {% endfor %}
+            <div class="body-card">
+                <p class="recipes-title">{{ recipe.title }}</p>
+                <p class="rating"><span>rate:</span> {{ recipe.avg_rating }}</p>
+            </div>
+           
+            
+            {% if recipe.id in favorites %}
+            <form method="post" action="{% url 'favorites:remove_from_favorite' recipe_id=recipe.id %}" class="add-to-favorites-form">
+                {% csrf_token %}
+                <button type="submit" class="fav-btn">Remove</button>
+            </form>
+            {% else %}
+            <form method="post" action="{% url 'favorites:add_to_favorite' recipe_id=recipe.id %}" class="add-to-favorites-form">
+                {% csrf_token %}
+                <button type="submit" class="fav-btn">Add to Favorites</button>
+            </form>
+            {% endif %}
+        
+            <a href="#" class="card-link">View Recipe</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="line-center"></div>
+<div class="catrgories-container">
+    <h2 class="recipes-section-title">Categories</h2>
+    <div class="line"></div>
+    <div class="categories">
+        <div class="category">
+            <img src="{% static 'imagess/vegans.jpg' %}" alt="vegan" class="category-image">
+            <p class="category-title">Vegan</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/vegetarian.jpeg' %}" alt="vegetarian" class="category-image">
+            <p class="category-title">Vegetarian</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/low-carb.jpg' %}" alt="low-carb" class="category-image">
+            <p class="category-title">Low Carb</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/gluten-free.jpeg' %}" alt="gluten-free" class="category-image">
+            <p class="category-title">Gluten Free</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/meal-prep.jpg' %}" alt="meal-prep" class="category-image">
+            <p class="category-title">Meal Prep</p>
+        </div>
+        <div class="category">
+            <img src="{% static 'imagess/weeknight-dinners.jpg' %}" alt="weeknight-dinners" class="category-image">
+            <p class="category-title">Weeknight Dinners</p>
         </div>
     </div>
-
-
-    {% endblock %}
-</body>
-
-</html>
+</div>
+<div class="line-center"></div>
+<div class="catrgories-container">
+    <h2 class="recipes-section-title">RECIPES BY INGREDIENT</h2>
+    <div class="line"></div>
+    <div class="categories">
+        <div class="category">
+            <div class="circle"></div>
+            <p class="category-title">Bell Peppe</p>
+        </div>
+        <div class="category">
+            <div class="circle"></div>
+            <p class="category-title">Carrot</p>
+        </div>
+        <div class="category">
+            <div class="circle"></div>
+            <p class="category-title">Eggs</p>
+        </div>
+        <div class="category">
+            <div class="circle"></div>
+            <p class="category-title">Lime</p>
+        </div>
+        <div class="category">
+            <div class="circle"></div>
+            <p class="category-title">Pasta</p>
+        </div>
+        <div class="category">
+            <div class="circle"></div>
+            <p class="category-title">Sweet Potato</p>
+        </div>
+</div>
+</div>
+<div class="line-center"></div>
+{% endblock %}
