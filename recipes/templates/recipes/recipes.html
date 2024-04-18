@@ -57,7 +57,7 @@
             </form>
             {% endif %}
         
-            <a href="#" class="card-link">View Recipe</a>
+            <a href="{% url 'recipes:recipe' recipe_id=recipe.id %}" class="card-link">View Recipe</a>
         </div>
         {% endfor %}
     </div>

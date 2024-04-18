@@ -1,2 +1,51 @@
 {% extends 'main.html' %}
 
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/recipe.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ recipe_data.title }}</h1>
+            <p><strong>Description:</strong> {{ recipe_data.description }}</p>
+            <p><strong>Preparation Time:</strong> {{ recipe_data.prep_time }}</p>
+            <p><strong>Cooking Time:</strong> {{ recipe_data.cook_time }}</p>
+            <p><strong>Cuisine:</strong> {{ recipe_data.cuisine }}</p>
+            
+            {% if recipe_data.avg_rating %}
+            <p><strong>Average Rating:</strong> {{ recipe_data.avg_rating }}</p>
+            {% endif %}
+            
+            <h3>Ingredients:</h3>
+            <ul>
+                {% for ingredient in recipe_data.ingredients %}
+                <li>{{ ingredient.quantity }} {{ ingredient.unit }} - {{ ingredient.ingredient.name }}</li>
+                {% endfor %}
+            </ul>
+            
+            <h3>Instructions:</h3>
+            <ol>
+                {% for instruction in recipe_data.instructions %}
+                <li>{{ instruction.step_number }}. {{ instruction.description }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+        <div class="col-md-4">
+            <h3>Images:</h3>
+            <div class="row">
+                {% for image in recipe_data.images %}
+                <div class="col-md-6">
+                    <img src="{{ image.image_url.url }}" class="img-fluid mb-2" alt="Recipe Image">
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -942,3 +942,114 @@ span {
     filter: grayscale(100%);
     transform: scale(0.8);
 }
+
+/* Styles for the recipe title */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    color: #FD7B10;
+}
+
+/* Styles for the description and other details */
+p {
+    margin-bottom: 10px;
+}
+
+/* Styles for the list of ingredients */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Styles for individual ingredient items */
+ul li {
+    margin-bottom: 5px;
+}
+
+/* Styles for the list of instructions */
+ol {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* Styles for individual instruction items */
+ol li {
+    margin-bottom: 10px;
+}
+
+/* Styles for the images */
+.img-fluid {
+    max-width: 100%;
+    width: 50%;
+    height: 50%;
+    margin-bottom: 10px;
+}
+
+/* Styles for the categories */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Styles for individual category items */
+ul li {
+    margin-bottom: 5px;
+}
+
+/* CSS for Favorite Recipes Page */
+.favo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.favo-title {
+    text-align: center;
+}
+
+.favo-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.favo-card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.favo-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.fav-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    margin-bottom: 10px;
+}
+
+.favo-btn {
+    display: block;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.favo-btn:hover {
+    background-color: #0056b3;
+}
