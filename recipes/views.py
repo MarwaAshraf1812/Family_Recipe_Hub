@@ -4,8 +4,6 @@ from favorites.models import Favorite
 from django.http import JsonResponse
 
 
-def recipe(request):
-    return render(request, 'recipes/recipe.html') 
 
 # def home(request):
 #     return render(request, 'recipes/home.html', {'recipes':Recipe.objects.all()})
@@ -26,8 +24,7 @@ def home(request):
         for recipe in top_recipes
     ]
     # Render the template with the top recipes
-    return render(request, 'recipes/home.html',{'top_recipes': top_recipes})
-
+    return render(request, 'recipes/home.html', {'top_recipes': top_recipes})
 
 
 def recipes(request):
@@ -42,16 +39,21 @@ def recipes(request):
         'avg_rating': float(recipe.avg_rating),
         'images':  RecipeImage.objects.filter(recipe=recipe),
     }
-    for recipe in recipes
+        for recipe in recipes
     ]
     return render(request, 'recipes/recipes.html', {'recipes': recipesData, 'favorites': fav})
 
-
 def recipe_search(request):
-    query = request.GET.get('query', '')
-    if query:
-        # Query the database for recipes matching the search query
-        search_results = Recipe.objects.filter(title__icontains=query).values('id', 'title')
-        return render(request, 'recipes/recipe.html', {'search_results': search_results})
+    if request.method == 'POST':
+        form = RecipeSearchForm(request.POST)
+        if form.is_valid():
+            search_request = form.cleaned_data['SearchRequest']
+            # Perform the search query
+            results = Recipe.objects.filter(
+                Q(title__icontains=search_request) |  # Title contains the search_request
+                Q(recipeingredient__ingredient__name__icontains=search_request)  # Ingredient name contains the search_request
+            ).distinct()  # Use distinct to avoid duplicate results
+            return render(request, 'search_results.html', {'results': results, 'search_request': search_request})
     else:
-        return JsonResponse([], safe=False)
+        form = RecipeSearchForm()
+    return render(request, 'search_form.html', {'form': form})
