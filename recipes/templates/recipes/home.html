@@ -31,6 +31,7 @@
     {% block content %}
     <div class="container">
         <h2 class="top-title">Top Recipes</h2>
+        <div class="c-line"></div>
         <div class="recipe-container">
             {% for recipe in top_recipes %}
             <div class="recipe-card">
@@ -44,14 +45,76 @@
             {% endfor %}
         </div>
     </div>
+    <section class="about-section" id="about">
+        <div class="about-text">
+            <h2>About Family Recipe Hub</h2>
+            <div class="a-line"></div>
+            <p>Welcome to Family Recipe Hub, your go-to destination for delicious and wholesome recipes for every occasion. Whether you're a seasoned chef or just starting out in the kitchen, our platform is designed to inspire and empower you to create memorable meals for your loved ones.</p>
+            <p>Our diverse collection of recipes covers a wide range of cuisines, dietary preferences, and cooking skill levels. From quick and easy weeknight dinners to indulgent desserts and special occasion feasts, we've got you covered.</p>
+            <p>Join our community today and embark on a culinary journey filled with creativity, flavor, and joy!</p>
+            <a href="#" class="about-btn">Read More</a>
+        </div>
+        <div class="about-image">
+            <img src="{% static 'imagess/about-food.jpg' %}" alt="About Image">
+        </div>
+    </section>
+    
+    <section class="blog-posts-section">
+        <h2 class="blog-section-title">Latest Blog Posts</h2>
+        <div class="c-line"></div>
+        <div class="blog-posts">
+            <div class="blog-post">
+                <img src="{% static 'imagess/menu143.jpg' %}" alt="menu">
+                <h3>In the kitchen</h3>
+                <p class="post-date">Published on 22-4-2024</p>
+                <a href="#" class="view-post-btn">View Post</a>
+            </div>
+            <div class="blog-post">
+                <img src="{% static 'imagess/menu142.jpg' %}" alt="menu">
+                <h3>Before you begin</h3>
+                <p class="post-date">Published on 18-4-2024</p>
+                <a href="#" class="view-post-btn">View Post</a>
+            </div>
+            <div class="blog-post">
+                <img src="{% static 'imagess/menu1.jpg' %}" alt="menu">
+                <h3>New Recipes</h3>
+                <p class="post-date">Published on 20-4-2024</p>
+                <a href="#" class="view-post-btn">View Post</a>
+            </div>
 
-            
+        </div>
+        <a href="/blog" class="view-all-btn">View All Posts</a>
+    </section>
 
-
+    <section class="contact-section" id="contact">
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <div class="co-line"></div>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="username">Your Name</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Your Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="form-btn">Send Message</button>
+            </form>
+        </div>
+        <div class="contact-image">
+            <img src="{% static 'imagess/chef.jpeg' %}" alt="Contact Image">
+        </div>
+    </section>
+    
     {% endblock %}
-
-
-
 </body>
-
 </html>
