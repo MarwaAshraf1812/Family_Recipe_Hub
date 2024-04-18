@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Recipe, RecipeImage
+from django.shortcuts import render, get_object_or_404
+from .models import Recipe, RecipeImage, RecipeIngredient, Instruction
 from favorites.models import Favorite
 from django.http import JsonResponse
 
@@ -42,6 +42,30 @@ def recipes(request):
         for recipe in recipes
     ]
     return render(request, 'recipes/recipes.html', {'recipes': recipesData, 'favorites': fav})
+
+
+def recipe_details(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    ingredients = RecipeIngredient.objects.filter(recipe=recipe)
+    instructions = Instruction.objects.filter(recipe=recipe)
+    images = RecipeImage.objects.filter(recipe=recipe)
+    # categories = recipe.category_set.all()  # Retrieve categories associated with the recipe
+
+    recipe_data = {
+        'id': recipe.id,
+        'title': recipe.title,
+        # 'categories': categories,
+        'description': recipe.description,
+        'prep_time': recipe.prep_time,
+        'cook_time': recipe.cook_time,
+        'cuisine': recipe.cuisine,
+        'avg_rating': float(recipe.avg_rating) if recipe.avg_rating else None,
+        'ingredients': ingredients,
+        'instructions': instructions,
+        'images': images,
+    }
+
+    return render(request, 'recipes/recipe.html', {'recipe_data': recipe_data})
 
 def recipe_search(request):
     query = request.GET.get('query', '')
